@@ -75,6 +75,8 @@ class AmplifireRoadTripApplicationTests {
 		assertThat(waypointController).isNotNull();
 	}
 
+	// Tests below do not leverage mockmvc but connect to localhost server
+	/*
 	@Test
 	public void testCreateUser() throws Exception {
 		User user = new User("Ryan", "qwerty1234", null);
@@ -96,5 +98,5 @@ class AmplifireRoadTripApplicationTests {
 		userService.deleteUserById(1);
 		assertEquals(null, userService.getUserById(1));
 	}
-
+	*/
 }
