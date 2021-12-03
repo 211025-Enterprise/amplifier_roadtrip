@@ -9,14 +9,14 @@ import java.util.List;
 @Service
 public class UserService {
 
-    private final UserRepository userRepository;
+    private static UserRepository userRepository = null;
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     //CREATE
-    public User createNewUser(User user) {
+    public static User createNewUser(User user) {
         if (userRepository.existsByUsername(user.getUsername()))
             return null; //TODO perhaps throw exception???
         return userRepository.save(user);
