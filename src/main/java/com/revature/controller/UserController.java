@@ -30,7 +30,8 @@ public class UserController {
     //READ
     @GetMapping
     @ResponseBody
-    public User getUserByToken(@RequestHeader("Authorization") String token) {
+    public User getUserByToken(@RequestHeader("Authorization") String incomingToken) {
+        String token = incomingToken.substring(7);
         return userService.getUserByUsername(jwtUtil.extractUsername(token));
     }
 
