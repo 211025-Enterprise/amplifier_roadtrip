@@ -24,9 +24,15 @@ public class Waypoint {
     @Column(nullable = false)
     private double latitude;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "trip_id", nullable = false)
     @JsonBackReference
     private Trip trip;
 
+    public Waypoint(String waypointName, double longitude, double latitude, Trip trip) {
+        this.waypointName = waypointName;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.trip = trip;
+    }
 }

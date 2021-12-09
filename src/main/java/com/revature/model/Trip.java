@@ -21,7 +21,7 @@ public class Trip {
 
     @Column
     private String tripName;
-    @OneToMany(mappedBy = "trip", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "trip", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Waypoint> waypoints;
 
@@ -30,4 +30,8 @@ public class Trip {
     @JsonBackReference
     private User user;
 
+    public Trip(String tripName, User user) {
+        this.tripName = tripName;
+        this.user = user;
+    }
 }
